@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main(){
+	int cars=0;  //input받기전에 변수로 계산할 것이면 미리 초기화 해놓기! 
+	int date=0;
+	int key=0;
+	int carnum;  //입력받을 자동차 번호들 동적 할당 
+	int sum=0;
+	
+	printf("date:");
+	scanf("%d", &date);
+	key=date%10; // 끝자리 가져오기
+	
+	printf("number of car:");
+	scanf("%d",&cars);
+	
+
+	printf("차량 번호를 입력하세요.\n");
+	
+	for(int i=0;i<cars;i++){
+		scanf("%d", &carnum); //받은 즉시 검사! 
+		if(carnum%10 == key || carnum%10 == (key+5)%10)//key값과 5차이 나는 다른 key값 둘중 하나가 포함되면... 
+			sum++;
+	}
+	
+	 printf("위반한 자동차는 %d대 입니다.",sum);
+}

@@ -1,0 +1,30 @@
+
+#include "stdlib.h"
+#include "stdio.h"
+
+int main(){
+	int n=0;
+	int s=0;
+	int e=0;
+	int sum=0;
+	
+	printf("number of inputs?:");
+	scanf("%d", &n);  //number of inputs
+	printf("\n");
+	printf("start end:");
+	scanf("%d %d", &s,&e);   //start number and end number
+	printf("\n");
+	
+	int N[n]; //input num array setting
+	printf("put inputs:");
+	for (int i=0;i<n;i++){
+		scanf("%d", &N[i]);  //배열 속 그 자리는 주소가 아니니까 &붙여서 주소값 가져오기!! 
+		}  
+	printf("\n");
+	
+	for(s=s-1;s<e;s++){
+		sum=sum+N[s];
+	}
+	printf("sum: %d \n", sum);		
+}
+

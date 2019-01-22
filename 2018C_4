@@ -1,0 +1,31 @@
+
+#include <stdio.h>
+
+int main(){
+	int x[4];
+	int y[4];
+	
+	printf("세 점을 입력 하세요.\n");
+	for(int i=0;i<3;i++){
+		scanf("%d %d", &x[i], &y[i]);  //array의 해당자리의 주솟값 가져와야함 
+	}
+	
+	int xx=x[0];
+	int yy=y[0];
+	
+	if(xx==x[1])
+		x[3]=x[2];
+	else if (xx==x[2])
+		x[3]=x[1];
+	else
+		x[3]=xx;
+		
+	if(yy==y[1])
+		y[3]=y[2];
+	else if (yy==y[2])
+		y[3]=y[1];
+	else
+		y[3]=yy;
+		
+	printf("네번째 점의 좌표는: %d %d", x[3],y[3]);
+}

@@ -4,7 +4,7 @@ int main(){
 	int cars=0;  //input받기전에 변수로 계산할 것이면 미리 초기화 해놓기! 
 	int date=0;
 	int key=0;
-	int carnum;  //입력받을 자동차 번호들 동적 할당 
+	int carnum;  
 	int sum=0;
 	
 	printf("date:");

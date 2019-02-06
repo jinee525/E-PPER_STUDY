@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>   //malloc 스려면 include 해야함!!! 
+
+int main(){
+	int m; //행
+	int n; //열
+	int **matrix;
+	int **trans; //전치된 행렬
+	 
+	printf("행렬의 행 열 수를 입력하세요.( 1<=m,n<=10) \n");
+	scanf("%d %d",&m,&n);
+	
+	matrix=(int**)malloc(m*sizeof(int*)); //행 생성
+	for(int i=0 ;i<m;i++){
+		//열 생성
+		matrix[i]=(int*)malloc(sizeof(int)*n);
+	}
+	 
+	printf("행렬을 입력하세요.(m*n) \n");
+	for(int i=0;i<m;i++){
+		for(int k=0;k<n;k++){
+			scanf("%d", &matrix[i][k]);  //array입력받을 때 & 주의하기!!! 
+		}
+	}
+	//전치행렬 만들기 n*m 행렬 
+	trans=(int**)malloc(n*sizeof(int*)); //행 생성
+	for(int i=0 ;i<n;i++){
+		//열 생성
+		trans[i]=(int*)malloc(sizeof(int)*m);
+	}
+	 
+	for(int i=0;i<m;i++){
+		for(int k=0;k<n;k++){
+			trans[k][i]=matrix[i][k];  //array입력받을 때 & 주의하기!!! 
+		}
+	}
+	
+	printf("전치된 행력은 다음과 같다.\n");
+	for(int i=0;i<n;i++){
+		for(int k=0;k<m;k++){
+			printf("%d ", trans[i][k]);
+		}
+		printf("\n"); //행바꾸기 
+	}
+	
+	
+}

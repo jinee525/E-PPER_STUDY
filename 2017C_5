@@ -31,9 +31,11 @@ int main(){
 	 
 	for(int i=0;i<m;i++){
 		for(int k=0;k<n;k++){
-			trans[k][i]=matrix[i][k];  //array입력받을 때 & 주의하기!!! 
+			trans[k][i]=matrix[i][k];  
 		}
+		free(matrix[i]);
 	}
+	free(matrix);   //free해서 필요없는 메모리 삭제!! 
 	
 	printf("전치된 행력은 다음과 같다.\n");
 	for(int i=0;i<n;i++){

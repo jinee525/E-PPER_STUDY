@@ -1,0 +1,33 @@
+ #include <stdio.h>
+ 
+ int main(){
+ 	int s,e; //start end number
+ 	int sum=0; //박수치는총횟수 
+ 	printf("369게임을 시작할 숫자와 끝낼 숫자를 입력하세요.(1<=s<=e<=10000): ");
+ 	scanf("%d %d", &s,&e);
+ 	printf("\n");
+ 	 //ex) 36-> 한번으로 인정
+	   
+ 	for(int i=s;i<=e;i++){
+ 		if(i%10 == 3 || i%10 ==6 || i%10 == 9){
+ 			//1의자리가 3,6,9 
+ 			sum++; 
+ 			continue; 
+		 }
+		else if(i/10 == 3 || i/10 == 6 || i/10 == 9 ){
+			//1의 자리 아닌것 중에 십의 자리가  3,6,9 
+			sum++;
+			continue;
+		}
+		else if(i/100 == 3 || i/100 == 6 || i/100 == 9 ){
+			sum++;
+			continue;
+		}
+		else if(i/1000 == 3 || i/1000 == 6 || i/1000 == 9 ){
+			sum++;
+			continue;
+		}
+	 }
+ 	
+ 	printf("박수치는 총 횟수는 %d",sum);
+ }

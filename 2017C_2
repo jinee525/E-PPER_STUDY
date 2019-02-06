@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main(){
+	int m=0;
+	int d=0;
+	int sum=0;
+	
+	printf("input month and date: ");
+	scanf("%d %d",&m,&d);
+	printf("\n");
+	
+	for(int i=1;i<m;i++){
+		if(i%2==1){
+			//홀수달
+			sum+=31;	 
+		}
+		else if(i==2){
+			sum+=28;
+		}
+		else
+			sum+=30;
+	}
+	
+	sum+=d;
+	int key=sum%7;
+	switch(key) {      //switch문!!! 문자는 '' int는 그냥 바로!!  
+	case 1: printf("일요일");break;
+	case 2: printf("월요일");break;
+	case 3: printf("화요일");break;
+	case 4: printf("수요일");break;
+	case 5: printf("목요일");break;
+	case 6: printf("금요일");break;
+	default: printf("토요일");break;
+	}
+}

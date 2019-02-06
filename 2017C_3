@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+	int n;
+	char **stdname; //string array 
+	
+	printf("학생수를 입력하세요.(1<=n<=50): ");
+	scanf("%d",&n);
+	printf("\n");
+	
+	stdname=(char **)malloc(n*sizeof(char *));  //학생 수 만큼 행 동적할당 
+	printf("학생 이름을 입력하세요. \n");
+	
+    for (int i=0;i<n;i++) {
+    	printf("행 %d \n",i);
+    	stdname[i]=(char*)malloc(50*sizeof(char*)); //이름길이는50이하 
+		//->각열의 자리도 동적할당 해줘야함! 
+        scanf("%s", stdname[i]); //이름 입력 받기 
+		//!!string을 그대로 가져와 배열에 넣는거니까 &필요없음 
+		//printf("뿅\n");
+    }
+
+	printf("뿅\n");
+	
+	for(int i=0;i<n;i++){
+		printf("Hello, %s !\n", stdname[i]);
+	} 
+
+}

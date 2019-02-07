@@ -31,3 +31,10 @@
  	
  	printf("박수치는 총 횟수는 %d",sum);
  }
+
+
+
+
+//for (s->e)
+each num ->while each digit check! 
+bool clap ture,false when meet 3,6,9 false->ture

@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <string.h>    // strlen 함수가 선언된 헤더 파일
+#include <stdlib.h>    //malloc
+
+int main(){
+	int l=0;
+	char m[100];
+	char *c; //암호화된 코드 
+	char *key;
+	int part=0;
+
+	printf("문자메세지를 입력하세요.(length<=100)\n");
+	scanf("%s", m);
+	l=strlen(m); //길이 
+	printf("length: %d\n",l);
+	//strlen으로 문자열 길이를 구할 때는 순수하게 문자열의 길이만 구하며 NULL 부분은 포함 X
+
+	key=(char*)malloc(sizeof(char)*l);
+	printf("키값을 입력하세요.(1~7,7자리)\n");
+	scanf("%s", key);
+	
+	if(l&7!=0){//7의배수가 아니면
+		int index=l; //m의 인덱스값
+		char add='a'; //추가할 값 
+		while(strlen(m)%7!=0){//input의 길이가 7의 배수가 될때까지
+			//printf("%c",add); //check
+			m[index++]=add++;  //아스키코드 값으로 계산해서 abcd~ 바꾸기 
+		} 
+	}
+	//printf("\n inchack m= %s \n",m); 
+	l=strlen(m);   //length update
+	c=(char*)malloc(sizeof(char)*l);
+	
+	int turn=0;
+	for(int i=0;i<l;i++){
+		if(i%7==0 && i !=0)  //먼저 주기 체크해주기 
+			turn++;
+		c[i]=m[((key[i%7]-48)-1)+turn*7]; //암호화하기// 문자-48 진짜 숫자값으로 변환 
+	}
+		
+	//result print!
+	printf("%s",c); 
+	
+}

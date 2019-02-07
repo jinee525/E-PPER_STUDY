@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define MAX =50 //수정가능한 상수..
+
 int main(){
 	int n;
 	char **stdname; //string array 

@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main(){
+	int n;
+	double pi;   //float하니까 안됨,,, double로 해야 정확하게 나옴!! 
+	int v=1;
+	
+	while(true){
+		printf("\n 정수 n을 입력하시오: ");
+		scanf("%d", &n);
+		
+		if(n<0)
+			break;
+		
+		for(int i=1;i<=n;i++){
+			pi+=v*4.0/(i*2-1);
+			v*=(-1);
+		}
+	
+		printf("\n 결과: %f", pi);
+	}
+	printf("프로그램 종료!");
+}

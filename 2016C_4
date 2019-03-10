@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+
+
+int main(){
+	char input[100];  //malloc은 입력할 크기가 변수로 주어질 떄 사용 용이 
+	int leng=0;
+	bool res=true;
+	
+	printf("양의 정수 n을 입력하시오:");
+	scanf("%s", input); //한자리씩 문자열 로 받기 
+	
+	printf("\n결과: ");
+	leng=strlen(input);
+	
+	
+	//sizeof 는 변수 총 크기 strlen 
+	for(int i=0;i<leng/2;i++){
+	
+		if(input[i] != input[leng-1-i]){
+			res=false;
+			break;
+		}
+	}
+	
+	if(res==true) printf("YES");
+	else printf("NO");	
+}

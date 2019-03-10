@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main(){
+	int n=0;
+	int sum=0;
+	
+	printf("정수n을 입력하시오:");
+	scanf("%d",&n);
+	printf("\n결과:");
+	
+	while(n!=1){
+		if(n%2==1) sum++;
+		n/=2;
+	}
+	sum++;   //마지막 1 
+	
+	printf("%d",sum);
+}

@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <malloc.h>
+
+int main(){
+	int in,s,t;
+	int nums[100];
+	int temp1,temp2;
+	
+	printf("배열의 크기를 입력하시오(~100): ");
+	scanf("%d", &in);
+	printf("배열 원소를 입력하시오:");
+	for(int i=0;i<in;i++){
+		scanf("%d", &nums[i]);
+	} 
+	
+	printf("시작 위치와 끝 위치를 입력하시오:");
+	scanf("%d %d", &s,&t);
+	temp1=nums[s];
+	for(int i=s;i<t;i++){
+		temp2=temp1;
+		temp1=nums[i+1];
+		nums[i+1]=temp2;
+	}
+	nums[s]=temp1;
+	
+	printf("배열의 이동 결과: ");
+	for(int i=0;i<in;i++){
+		printf("%d ",nums[i]);
+	}
+}

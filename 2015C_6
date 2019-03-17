@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+	int num=0;
+	int a,b;
+	bool res=false;
+	
+	while(true){
+	printf("양의 정수를 입력하시오:");
+	scanf("%d", &num);
+		res=false;  //reset!
+		if(num<0)	break;
+		else{
+		for(int i=1;i<=sqrt(num);i++){
+			a=i;
+			for(int j=1;j<=sqrt(num);j++){
+				b=j;
+				if(pow(a,2)+pow(b,2)==num){
+					a=pow(a,2);
+					b=pow(b,2);
+					res=true;
+					break;
+				}
+			}
+			if(res==true)	break;
+		}
+		if (res==true)
+			printf("%d = %d + %d 만족합니다.\n", num, a, b); 
+		else
+			printf("%d 은 만족하지 않습니다.\n",num);
+		}
+	}
+	
+	printf("프로그램을 종료합니다.");
+}

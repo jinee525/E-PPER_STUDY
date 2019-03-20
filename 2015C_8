@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h> //malloc , free 들어있는 라이브러리 
+
+
+int main(){
+	int nums=0;
+	
+	typedef struct student{
+		char name[20];
+		int score;
+	};
+	
+	
+	
+	printf("학생 수를 입력하시오: ");
+	scanf("%d", &nums); 
+	
+	student *c=(student*)malloc(sizeof(student)*nums); 
+	
+	printf("학생의 이름과 수학점수를 입력하시오: ");
+	for (int j=0;j<nums;j++){
+		scanf("%s %d",&c[j].name,&c[j].score);  // scanf는 &와 변수필요. 
+	} 
+	
+	
+	/*for(int j=0;j<nums;j++){
+		printf("%s %d \n", c[j].name, c[j].score);
+	}*/
+	
+	
+	printf("정렬 결과: \n");
+	
+	for(int i=1;i<=100;i++){
+		for(int j=0;j<nums;j++){
+			if(c[j].score == i){
+				printf("%s %d \n", c[j].name, c[j].score);
+				break;
+			}
+		}
+	
+	}
+}

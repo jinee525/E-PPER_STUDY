@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main(){
+	int res[2]; //계산하는 동안 쓰는 array   ,res[0]에 최종 답 들어갈 것임 
+	int m=0; //input #
+	int num[11]; //input num
+	char cal[11]; //input cal 
+	char c;
+	
+	printf("입력되는 연산자와 피연산자의 개수의 합 m:");	
+	scanf("%d",&m);
+	
+	printf("식을 입력하세요:");
+	for(int i=0; i<m; i++){
+		if(i%2==0 && i>0)	scanf("%s", &cal[i]);  
+		//%c로 받으면 띄어쓰기까지 같이 문자로 인식함 주의!! 
+		//%s 로 받으면 띄어쓰기를 기준으로 끊어 받음! 
+		else	scanf("%d", &num[i]);
+		
+	}
+
+	res[0]=num[0];  //set up
+	res[1]=num[1];
+	
+	for(int i=2; i<m; i++){
+		if(i%2==0){
+			c=cal[i];
+			switch(c){//result update to res[0]
+				case '+': res[0]=res[0]+res[1]; break;
+				case '-': res[0]=res[0]-res[1]; break;
+				case '/': res[0]=res[0]/res[1]; break;
+				case '*': res[0]=res[0]*res[1]; break;
+				default: printf("잘못된연산자"); break;
+			}
+		}
+		else res[1]=num[i]; //int update to res[1]
+	}
+	
+	printf("연산 결과는 %d 입니다", res[0]);
+	
+}

@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+int main(){
+	char in1[20];
+	char in2[20];
+	char check[20];
+	int tag=0;  //0=없음 1=있음 
+	
+	char *res="Yes"; //결과값 
+	
+	printf("두 개의 문자열을 입력하시오\n");
+	printf("문자열 1:");
+	scanf("%s", &in1);
+	printf("문자열 2:");
+	scanf("%s", &in2);
+	
+	for(int i=0; i<strlen(in2);i++){
+		check[i]=in2[i];    //string은 하나씩 돌려서 재지정 가능? 
+	}
+	
+	in1[0]=tolower(in1[0]);
+	check[0]=tolower(check[0]);  //change to lower 
+	
+	int in1leng=strlen(in1);
+	int checkleng=strlen(check);
+	
+	for(int i=0; i<in1leng; i++){
+		for(int j=0; j<checkleng; j++){
+			if(in1[i]==check[j]){//같은거 찾으면 없애주기
+				tag=1;
+				check[j]=NULL;  //널값은 대문자! 
+			}
+		}
+		if(tag==0)	res="No";
+		tag=0;
+	}
+	
+	in1[0]=toupper(in1[0]);
+	printf("%s (을)를 재배열 하면 %s (으)로 변환가능: %s", in1, in2, res);
+	
+}
